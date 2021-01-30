@@ -1,0 +1,53 @@
+<div class="row">
+
+  <div class="col text-center">
+
+    <img src="../assets/img/{{intentos}}.png" class="ahorcado-img">
+
+    <h3>Intentos <small> {{intentos}} / 9 </small></h3>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col text-center">
+
+    <h1> {{ palabraOculta }} </h1>
+
+  </div>
+
+  <div class="row" *ngIf="gano">
+
+    <div class="col text-center">
+  
+      <h1> ¡Felicidades! </h1>
+      <h4> Ganaste</h4>
+  
+    </div>
+</div>
+
+<div class="row" *ngIf="perdio">
+
+  <div class="col text-center">
+
+    <h1> ¡Perdiste!</h1>
+    <h4> La palabra era {{palabra}}</h4>
+
+  </div>
+
+</div>
+
+<div class="row" *ngIf="!gano && !perdio">
+
+  <div class="col text-center">
+
+    <!-- click es una función de angular que manda a llamar a la función comprobar de nuestro typescript y recibe como argumento la letra que se tecleó. -->
+
+    <!-- ngFor: Función de angular que actua como un for. Declaramos una variable letra que recorre y toma cada uno de los elementos contenidos en el arreglo letras de nuestro Typescript.-->
+    <button (click)="comprobar( letra )"  *ngFor="let letra of letras" class="btn btn-primary bg-dark border-white"> {{ letra }} </button>
+
+  </div>
+
+</div>
